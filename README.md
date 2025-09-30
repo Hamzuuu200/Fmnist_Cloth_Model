@@ -27,8 +27,7 @@ fashion_mnist_streamlit/
 ├─ app4.py                  # Streamlit app code  
 ├─ README.md               # Project description  
 ├─ requirements.txt        # Dependencies  
-└─ images/                 # (Optional) Example images  
-
+└─ images/                 
 ## ⚡ How to Run
 # 1. Clone the repository
 git clone https://github.com/Hamzuuu200/fashion_mnist_streamlit.git  
@@ -52,3 +51,4 @@ plotly
 
 ## 👨‍💻 Author
 Muhammad Hamza
+
