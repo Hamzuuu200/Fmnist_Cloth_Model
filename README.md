@@ -22,12 +22,12 @@ This is a **Streamlit web app** that allows users to upload an image of a fashio
 
      
 ## Tools Used:
-Python
-Pandas
-Numpy
-Streamlit
-Pytorch
-Plotly
+Python , 
+Pandas , 
+Numpy , 
+Streamlit , 
+Pytorch , 
+Plotly , 
 
 
 ## 📂 Folder Structure
@@ -61,5 +61,6 @@ plotly
 
 ## 👨‍💻 Author
 Muhammad Hamza
+
 
 
