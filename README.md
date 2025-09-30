@@ -27,7 +27,7 @@ Pandas ,
 Numpy , 
 Streamlit , 
 Pytorch , 
-Plotly , 
+Plotly 
 
 
 ## 📂 Folder Structure
@@ -61,6 +61,7 @@ plotly
 
 ## 👨‍💻 Author
 Muhammad Hamza
+
 
 
 
