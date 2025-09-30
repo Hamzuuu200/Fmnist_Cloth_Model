@@ -18,7 +18,17 @@ This is a **Streamlit web app** that allows users to upload an image of a fashio
 7. Shirt  
 8. Sneaker  
 9. Bag  
-10. Ankle Boot  
+10. Ankle Boot
+
+     
+## Tools Used:
+Python
+Pandas
+Numpy
+Streamlit
+Pytorch
+Plotly
+
 
 ## 📂 Folder Structure
 fashion_mnist_streamlit/
@@ -51,4 +61,5 @@ plotly
 
 ## 👨‍💻 Author
 Muhammad Hamza
+
 
