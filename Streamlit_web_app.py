@@ -6,8 +6,6 @@ from torchvision import transforms
 from PIL import Image
 import numpy as np
 import plotly.express as px
-
-# Set background image
 st.markdown("""
 <style>
 .stApp {
@@ -26,9 +24,6 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-
-
-# --- Background Image ---
 page_bg_img = """
 <style>
 .stApp {
@@ -42,7 +37,6 @@ background-attachment: fixed;
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# --- Load Model ---
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 vgg16 = models.vgg16(pretrained=True)
@@ -63,7 +57,6 @@ vgg16.load_state_dict(torch.load("vgg16_weights.pth", map_location=device))
 vgg16 = vgg16.to(device)
 vgg16.eval()
 
-# --- Preprocessing ---
 custom_transform = transforms.Compose([
     transforms.Resize(256),
     transforms.CenterCrop(224),
@@ -72,16 +65,12 @@ custom_transform = transforms.Compose([
                          std=[0.229, 0.224, 0.225])
 ])
 
-# --- Class Names ---
 class_names = [
     "T-shirt/top", "Trouser", "Pullover", "Dress", "Coat",
     "Sandal", "Shirt", "Sneaker", "Bag", "Ankle Boot"
 ]
 
-# --- Streamlit Layout ---
 st.set_page_config(page_title="Fashion MNIST Classifier", layout="wide")
-
-# --- Sidebar with colored cards ---
 st.sidebar.markdown("""
 <div style="background: linear-gradient(135deg, #ff416c, #ff4b2b);color:white;padding:15px;border-radius:10px;margin-bottom:10px">
 <h3>Instructions</h3>
@@ -108,26 +97,19 @@ st.sidebar.markdown("""
 
 show_probs = st.sidebar.checkbox("Show Class Probabilities", value=True)
 
-# --- Page Title ---
 st.title("👗 Fashion MNIST Classifier")
 st.markdown("Upload an image and the model will predict its class. See probabilities if enabled.")
 
-# --- File uploader ---
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
-
-    # Columns: Image and Predictions
     col1, col2 = st.columns([1, 1.5])
 
     with col1:
         st.image(image, caption="Uploaded Image", use_column_width=True)
 
-    # Preprocess
     img_tensor = custom_transform(image).unsqueeze(0).to(device)
-
-    # Prediction
     with torch.no_grad():
         outputs = vgg16(img_tensor)
         probs = torch.softmax(outputs, dim=1).cpu().numpy()[0]
@@ -140,7 +122,6 @@ if uploaded_file is not None:
         st.markdown(f"**Confidence:** {confidence*100:.2f}%")
 
         if show_probs:
-            # --- Original Tinted Plotly Bar Chart ---
             df_probs = {
                 "Class": class_names,
                 "Probability": probs
@@ -162,3 +143,4 @@ if uploaded_file is not None:
                 height=400
             )
             st.plotly_chart(fig, use_container_width=True)
+
