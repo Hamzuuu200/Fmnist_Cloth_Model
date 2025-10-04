@@ -34,7 +34,7 @@ Plotly
 fashion_mnist_streamlit/
 │
 ├─ vgg16_weights.pth       # Trained PyTorch model  
-├─ app4.py                  # Streamlit app code  
+├─ Streamlit_web_app.py                  # Streamlit app code  
 ├─ README.md               # Project description  
 ├─ requirements.txt        # Dependencies  
 └─ images/                 
@@ -61,6 +61,7 @@ plotly
 
 ## 👨‍💻 Author
 Muhammad Hamza
+
 
 
 
